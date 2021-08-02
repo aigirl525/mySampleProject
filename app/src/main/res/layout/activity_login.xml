@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.LoginActivity">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.mysampleproject.viewmodel.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_backgroundPrimary"
+        app:layoutDescription="@xml/app_scene_login">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:bind_toolbar_itemClick="@{viewModel.onCloseClick}"
+            android:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/app_menu_login"
+            app:theme="@style/app_toolbar" />
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="100dp"
+            android:text="@string/app_welcome_tips"
+            android:textColor="@color/app_textNormal"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="?selectableItemBackground"
+            android:bind_onClick="@{viewModel.onTabClick}"
+            android:bind_onClick_item="@{true}"
+            android:bind_selected="@{viewModel.register}"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/app_register"
+            android:textColor="@color/app_selector_login_register_text"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_login"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_welcome"
+            tools:enabled="false" />
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="?selectableItemBackground"
+            android:bind_onClick="@{viewModel.onTabClick}"
+            android:bind_onClick_item="@{false}"
+            android:bind_selected="@{!viewModel.register}"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/app_login"
+            android:textColor="@color/app_selector_login_register_text"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_register"
+            app:layout_constraintTop_toBottomOf="@id/tv_welcome"
+            android:bind_tv_show_strike_thru="@{viewModel.register}"/>
+        <com.example.textview.FixedEditText
+            android:id="@+id/tv_login_by_fingerprin1t"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:drawablePadding="4dp"
+            android:textColor="@color/app_textAccent"
+            android:textSize="14sp"
+            app:drawableTint="@color/app_tintAccent"
+            app:ftv_drawableTop="@drawable/app_vector_fingerprint"
+            app:ftv_drawableTopHeight="48dp"
+            app:ftv_drawableTopWidth="48dp"
+            app:fet_phoneFormat = "true"
+            app:layout_constraintTop_toBottomOf="@+id/tv_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <View
+            android:id="@+id/v_underline"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:background="@color/app_tintTheme"
+            app:layout_constraintEnd_toEndOf="@id/tv_register"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_register" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_user_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
+            android:bind_til_error="@{viewModel.userNameError}"
+            android:hint="@string/app_please_enter_user_name"
+            app:endIconMode="clear_text"
+            app:errorIconTint="@color/app_tintError"
+            app:errorTextColor="@color/app_textError"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_login"
+            app:startIconDrawable="@drawable/app_vector_phone"
+            app:startIconTint="@color/app_tintTheme">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:inputType="text"
+                android:maxLength="13"
+                android:singleLine="true"
+                android:text="@={viewModel.userName}"
+                android:textColor="@color/app_textNormal"
+                android:textSize="16sp"
+                tools:text="王五" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:bind_til_error="@{viewModel.passwordError}"
+            android:hint="@string/app_please_enter_password"
+            app:endIconMode="password_toggle"
+            app:errorIconTint="@color/app_tintError"
+            app:errorTextColor="@color/app_textError"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_user_name"
+            app:startIconDrawable="@drawable/app_vector_password"
+            app:startIconTint="@color/app_tintTheme">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:text="@={viewModel.password}"
+                android:textColor="@color/app_textNormal"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_repassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:bind_til_error="@{viewModel.repasswordError}"
+            android:bind_visibility="@{viewModel.register}"
+            android:hint="@string/app_please_enter_password_again"
+            app:endIconMode="password_toggle"
+            app:errorIconTint="@color/app_tintError"
+            app:errorTextColor="@color/app_textError"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_password"
+            app:startIconDrawable="@drawable/app_vector_password"
+            app:startIconTint="@color/app_tintTheme">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_repassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:text="@={viewModel.repassword}"
+                android:textColor="@color/app_textNormal"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_login_register"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="40dp"
+            android:bind_onClick="@{viewModel.onButtonClick}"
+            android:text="@{viewModel.buttonStr}"
+            android:textColor="@color/app_textPrimary"
+            android:textSize="16sp"
+            app:backgroundTint="@color/app_tintTheme"
+            app:cornerRadius="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_repassword"
+            tools:text="注册" />
+
+        <com.example.textview.FixedTextView
+            android:id="@+id/tv_login_by_fingerprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="?selectableItemBackground"
+            android:bind_onClick="@{viewModel.onFingerprintClick}"
+            android:bind_visibility="@{viewModel.showFingerprint}"
+            android:drawablePadding="4dp"
+            android:text="@string/app_login_by_fingerprint"
+            android:textColor="@color/app_textAccent"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:drawableTint="@color/app_tintAccent"
+            app:ftv_drawableTop="@drawable/app_vector_fingerprint"
+            app:ftv_drawableTopHeight="48dp"
+            app:ftv_drawableTopWidth="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+</layout>

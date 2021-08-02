@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.mysampleproject.viewmodel.HomepageFragmentViewModel" />
+
+        <variable
+            name="item"
+            type="com.example.mysampleproject.entity.BannerEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?selectableItemBackground"
+        android:bind_onClick="@{viewModel.onBannerItemClick}"
+        android:bind_onClick_item="@{item}">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:bind_iv_img_default="@{@drawable/app_vector_broken_image}"
+            android:bind_iv_img_url="@{item.imagePath}"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            app:layout_constraintDimensionRatio="@string/app_golden_ratio_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/app_vector_image" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@color/app_translucentDark"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:singleLine="true"
+            android:text="@{item.title}"
+            android:textColor="@color/app_textPrimary"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@sample/banner_list.json/data/title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

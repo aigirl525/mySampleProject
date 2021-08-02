@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
+
+    <declare-styleable name="CustomViewPager">
+        <attr name="scrollable" format="boolean" />
+        <attr name="fixHeight" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="EasyPickerView">
+        <attr name="epvTextSize" format="dimension" />
+        <attr name="epvTextColor" format="color" />
+        <attr name="epvTextPadding" format="dimension" />
+        <attr name="epvTextMaxScale" format="float" />
+        <attr name="epvTextMinAlpha" format="float" />
+        <attr name="epvRecycleMode" format="boolean" />
+        <attr name="epvMaxShowNum" format="integer" />
+    </declare-styleable>
+
+    <!-- 虚线 -->
+    <declare-styleable name="DashView">
+        <attr name="dashWidth" format="dimension" />
+        <attr name="lineHeight" format="dimension" />
+        <attr name="lineWidth" format="dimension" />
+        <attr name="lineColor" format="color" />
+        <attr name="dashOrientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!-- 侧边文本导航栏 -->
+    <declare-styleable name="SideBarView">
+        <attr name="sbv_letters" format="string" />
+        <attr name="sbv_background_nor" format="color" />
+        <attr name="sbv_background_press" format="color" />
+        <attr name="sbv_text_size" format="dimension" />
+        <attr name="sbv_text_color_nor" format="color" />
+        <attr name="sbv_text_color_press" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="FixedTextView">
+        <attr name="ftv_drawableStart" format="reference" />
+        <attr name="ftv_drawableStartWidth" format="dimension|reference" />
+        <attr name="ftv_drawableStartHeight" format="dimension|reference" />
+
+        <attr name="ftv_drawableEnd" format="reference" />
+        <attr name="ftv_drawableEndWidth" format="dimension|reference" />
+        <attr name="ftv_drawableEndHeight" format="dimension|reference" />
+
+        <attr name="ftv_drawableTop" format="reference" />
+        <attr name="ftv_drawableTopWidth" format="dimension|reference" />
+        <attr name="ftv_drawableTopHeight" format="dimension|reference" />
+
+        <attr name="ftv_drawableBottom" format="reference" />
+        <attr name="ftv_drawableBottomWidth" format="dimension|reference" />
+        <attr name="ftv_drawableBottomHeight" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="FixedEditText">
+        <attr name="fet_drawableStart" format="reference" />
+        <attr name="fet_drawableStartWidth" format="dimension|reference" />
+        <attr name="fet_drawableStartHeight" format="dimension|reference" />
+
+        <attr name="fet_drawableEnd" format="reference" />
+        <attr name="fet_drawableEndWidth" format="dimension|reference" />
+        <attr name="fet_drawableEndHeight" format="dimension|reference" />
+
+        <attr name="fet_drawableTop" format="reference" />
+        <attr name="fet_drawableTopWidth" format="dimension|reference" />
+        <attr name="fet_drawableTopHeight" format="dimension|reference" />
+
+        <attr name="fet_drawableBottom" format="reference" />
+        <attr name="fet_drawableBottomWidth" format="dimension|reference" />
+        <attr name="fet_drawableBottomHeight" format="dimension|reference" />
+
+        <attr name="fet_phoneFormat" format="boolean" />
+    </declare-styleable>
+
+</resources>

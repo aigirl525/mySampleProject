@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 基本主题 -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- 应用主色调，ActionBar 等默认颜色 -->
+        <item name="colorPrimary">@color/app_colorPrimary</item>
+        <!-- 应用主要暗色调，StatusBar 默认颜色 -->
+        <item name="colorPrimaryDark">@color/app_colorPrimaryDark</item>
+        <!-- 应用中控件选中默认色调 -->
+        <item name="colorAccent">@color/app_colorAccent</item>
+        <!-- 窗口背景 -->
+        <item name="android:windowBackground">@color/app_backgroundWindow</item>
+
+        <!-- 动画相关 -->
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+    </style>
+
+    <!-- 欢迎界面主题 -->
+    <style name="AppTheme.Splash">
+        <!-- 应用主色调，ActionBar 等默认颜色 -->
+        <item name="colorPrimary">@color/app_white</item>
+        <!-- 应用主要暗色调，StatusBar 默认颜色 -->
+        <item name="colorPrimaryDark">@color/app_white</item>
+        <!-- 窗口背景 -->
+        <item name="android:windowBackground">@drawable/app_layer_list_splash_bg</item>
+    </style>
+</resources>
